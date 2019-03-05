@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Action</title>
+  </head>
+  <body>
+    <label>
+      Number of successive clicks
+      <input id="count" type="number" value="4" min="2" required>
+    </label>
+
+    <script src="https://assets.adobedtm.com/activation/reactor/extensionbridge/extensionbridge.min.js"></script>
+    <script>
+      var countInput = document.getElementById('count');
+
+      window.extensionBridge.register({
+        init: function(info) {
+          if (info.settings) {
+            countInput.value = info.settings.count;
+          }
+        },
+
+        getSettings: function() {
+          return {
+            count: Number(countInput.value)
+          };
+        },
+
+        validate: function() {
+          return countInput.reportValidity();
+        }
+      });
+    </script>
+  </body>
+</html>

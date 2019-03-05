@@ -1,0 +1,31 @@
+{
+  "displayName": "Multiclick",
+  "name": "multiclick",
+  "platform": "web",
+  "version": "1.0.0",
+  "description": "Detects rapid clicking.",
+  "author": {
+    "name": "Aaron Hardy"
+  },
+  "viewBasePath": "src/view/",
+  "events": [
+    {
+      "displayName": "Multiclick",
+      "name": "multiclick",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {
+          "count": {
+            "type": "number",
+            "minimum": 2
+          }
+        },
+        "required": ["count"],
+        "additionalProperties": false
+      },
+      "libPath": "src/lib/events/multiclick.js",
+      "viewPath": "events/multiclick.html"
+    }
+  ]
+}
